@@ -16,6 +16,8 @@ public class PlayerScript2 : MonoBehaviour
     //This is how many points we currently have
     public static int Score = 0;
     
+    public ParticleSystem PS;
+    
     //Start automatically gets triggered once when the objects turns on/the game starts
     void Start()
     {
@@ -66,6 +68,13 @@ public class PlayerScript2 : MonoBehaviour
             Die();
         }
         
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            PS.Emit(5);
+      
+        }
+
+
         //This checks to see if the thing you bumped into has the CoinScript script on it
         CoinScript coin = other.gameObject.GetComponent<CoinScript>();
         //If it does, run the code block belows
