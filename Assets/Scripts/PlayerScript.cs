@@ -21,6 +21,8 @@ public class PlayerScript : MonoBehaviour
     
     //This is how many points we currently have
     public static int Score = 0;
+
+    public ParticleSystem PS;
     
     //Start automatically gets triggered once when the objects turns on/the game starts
     void Start()
@@ -67,12 +69,19 @@ public class PlayerScript : MonoBehaviour
     //This gets called whenever you bump into another object, like a wall or coin.
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
         //This checks to see if the thing you bumped into had the Hazard tag
         //If it does...
         if (other.gameObject.CompareTag("Hazard"))
         {
             //Run your 'you lose' function!
             Die();
+        }
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            PS.Emit(5);
+            
         }
         
         //This checks to see if the thing you bumped into has the CoinScript script on it
