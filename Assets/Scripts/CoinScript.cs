@@ -10,10 +10,12 @@ public class CoinScript : MonoBehaviour
     public void GetBumped()
     {
         // code for the coin reapear once its hit, which actually only changing its position
-       transform.position = new Vector3(Random.Range(-7, 7), Random.Range(-4, 4), 
-           Random.Range(-10, 0));
-        
+        transform.position = new Vector3(Random.Range(-7, 7), Random.Range(-4, 4),
+            Random.Range(-10, 0));
+
         //This destroys the coin
         //Destroy(gameObject);
     }
+    
+    
 }
